@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     daemons (1.2.3)
+    erubis (2.7.0)
     eventmachine (1.0.7)
     rack (1.6.4)
     rack-protection (1.5.3)
@@ -21,9 +22,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  erubis
   redis
   sinatra
   thin
+  tilt
 
 BUNDLED WITH
    1.10.5
