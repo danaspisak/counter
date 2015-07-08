@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>COUNTER</title>
+        <link href="css/flapper.css" type="text/css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="transform/dist/jquery.transform-0.9.3.min.js"></script>
+        <script src="jshashtable-2.1/jshashtable.js"></script>
+        <script src="numberformatter/jquery.numberformatter-1.2.3.min.js"></script>
+        <script src="src/jquery.flapper.js"></script>
+        <script language="javascript">
+            $(function() {
+    					$('#banner').css({
+        					'position' : 'absolute',
+        					'left' : '50%',
+        					'top' : '50%',
+        					'margin-left' : -$('.className').outerWidth()/2-592,
+        					'margin-top' : -$('.className').outerHeight()/2-250
+    					});
+						});
+            $(document).ready(function() {
+                var $header_display = $('#header_display');
+                $header_display.flapper({
+                    width: 3,
+                    chars_preset: 'num'
+                });
+
+                var source = new EventSource('/subscribe');
+
+                source.addEventListener('message', function (event) {
+                  $header_display.val(event.data).change();
+                }, false);
+
+            });
+
+
+
+        </script>
+        <style type="text/css">
+
+
+            html,
+            body {
+                margin: 0px;
+                padding: 0px;
+                overflow-x: hidden;
+                background-color: white;
+                font-family: Helvetica, Arial, sans-serif;
+            }
+
+        	   #banner {
+
+            }
+
+        </style>
+
+    </head>
+    <body>
+    <div id="banner">
+
+    <div class="display">
+    	<input class="header dark MONSTER" id="header_display" />
+    </div>
+  </div>
+    </body>
+</html>
